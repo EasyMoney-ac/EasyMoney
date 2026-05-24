@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>闪击坦克</title>
+    <link rel="stylesheet" href="styles.css?v=20260518-3" />
+  </head>
+  <body>
+    <main class="game-shell" aria-label="闪击坦克">
+      <canvas id="gameCanvas" aria-label="坦克大战游戏画布"></canvas>
+
+      <section class="hud" aria-label="战况">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <strong>闪击坦克</strong>
+        </div>
+        <div class="stat">
+          <span>分数</span>
+          <strong id="scoreText">0</strong>
+        </div>
+        <div class="stat">
+          <span>波次</span>
+          <strong id="waveText">0</strong>
+        </div>
+        <div class="stat combo">
+          <span>连击</span>
+          <strong id="comboText">x1</strong>
+        </div>
+        <div class="meters">
+          <div class="meter" aria-label="玩家生命">
+            <span id="hpBar"></span>
+          </div>
+          <div class="meter core" aria-label="核心耐久">
+            <span id="coreBar"></span>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="muteButton" class="icon-button" type="button" title="音乐和音效" aria-label="音乐和音效">♫</button>
+          <button id="pauseButton" class="icon-button" type="button" title="暂停" aria-label="暂停">Ⅱ</button>
+        </div>
+      </section>
+
+      <section id="startScreen" class="overlay">
+        <div class="modal">
+          <p class="eyebrow">ARCADE DEFENSE</p>
+          <h1>闪击坦克</h1>
+          <p class="tagline">关卡制地图、轻松上手、通关解锁下一战区。</p>
+          <div id="mapGrid" class="map-grid" aria-label="地图选择"></div>
+          <div class="modal-actions">
+            <button id="startButton" class="primary-button" type="button">开始关卡</button>
+          </div>
+          <div class="score-row">
+            <span id="currentMapText">当前地图</span>
+            <strong id="bestText">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="pauseScreen" class="overlay hidden">
+        <div class="modal compact">
+          <p class="eyebrow">PAUSED</p>
+          <h2>战场冻结</h2>
+          <div class="modal-actions">
+            <button id="resumeButton" class="primary-button" type="button">继续</button>
+            <button id="restartButton" class="ghost-button" type="button">重开</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="gameOverScreen" class="overlay hidden">
+        <div class="modal compact">
+          <p class="eyebrow">MISSION END</p>
+          <h2 id="resultTitle">核心失守</h2>
+          <div class="score-grid">
+            <span>分数</span>
+            <strong id="finalScore">0</strong>
+            <span>最佳</span>
+            <strong id="finalBest">0</strong>
+          </div>
+          <div class="modal-actions">
+            <button id="nextButton" class="primary-button" type="button">下一关</button>
+            <button id="replayButton" class="ghost-button" type="button">再玩本关</button>
+            <button id="mapButton" class="ghost-button" type="button">选择地图</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="touch-controls" aria-hidden="true">
+        <div id="stick" class="stick">
+          <span id="stickKnob"></span>
+        </div>
+        <button id="fireButton" class="fire-button" type="button" title="开火">
+          <span></span>
+        </button>
+      </div>
+    </main>
+
+    <script src="game.js?v=20260518-3"></script>
+  </body>
+</html>
